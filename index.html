@@ -1,61 +1,10 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catatan Lembur</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.6.0/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
-</head>
-<body>
-    
-    <div id="datetimeContainer" style="position: fixed; top: 10px; right: 10px; background-color: #ffffff; padding: 10px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
-        <div id="calendar"></div>
-        <div id="clock"></div>
-    </div>
-    <h1>Catatan Lembur</h1>
-    <table id="overtimeTable">
-        <thead>
-            <tr>
-                <th>Tanggal</th>
-                <th>Jam Mulai</th>
-                <th>Jam Selesai</th>
-                <th>Total Lembur (Jam)</th>
-                <th>Gaji per Jam</th>
-                <th>Total Gaji</th>
-                <th>Catatan</th>
-                <th>Aksi</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Baris data lembur akan ditambahkan di sini -->
-            
-        </tbody>
-    </table>
-    <div id="formContainer">
-        <label for="dateInput">Tanggal:</label>
-        <input type="date" id="dateInput">
-        <label for="startTimeInput">Jam Mulai:</label>
-        <input type="time" id="startTimeInput">
-        <label for="endTimeInput">Jam Selesai:</label>
-        <input type="time" id="endTimeInput">
-        <label for="hourlyRateInput">Gaji per Jam:</label>
-        <input type="number" id="hourlyRateInput" value="1350">
-        <label for="notesInput">Catatan:</label>
-        <input type="text" id="notesInput">
-        <div class="button-row">
-            <button onclick="addOvertime()">Tambah Lembur</button>
-            <button onclick="removeAllOvertime()">Hapus Semua</button>
-        </div>
-        <div class="button-row">
-            <button onclick="saveAsPDF()" id="saveButton">Simpan sebagai PDF</button>
-            <button onclick="sendToWhatsApp()" id="whatsappButton">Kirim ke WhatsApp</button>
-            <button onclick="saveToDevice()" id="saveToDeviceButton">Simpan ke Smartphone</button>
-        </div>
-    </div>
-    <p>Total Lembur Keseluruhan: <span id="totalOvertime">0</span> jam</p>
-    <p>Total Gaji Keseluruhan: <span id="totalSalary">0</span></p>
-    <script src="script.js"></script>
-</body>
-</html>
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: #ffffff; /* Warna teks putih */
+    text-transform: uppercase; /* Mengubah teks menjadi huruf besar semua */
+    background-color: #4A90E2; /* Warna latar belakang kotak */
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Bayangan lembut */
+}
