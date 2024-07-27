@@ -141,9 +141,9 @@ function updateTotalSalary() {
     const totalSalary = overtimeData.reduce((acc, curr) => acc + parseFloat(curr.totalSalary), 0);
     document.getElementById("totalSalary").textContent = totalSalary.toFixed(2);
 }
-function saveAsPDF() {
+async function saveAsPDF() {
     const element = document.getElementById("overtimeTable");
-    html2canvas(element).then(canvas => {
+    html2canvas(element).then(async canvas => {
         const imgData = canvas.toDataURL('image/png');
         const pdf = new jsPDF({
             orientation: 'landscape'
@@ -156,9 +156,37 @@ function saveAsPDF() {
         const ratio = imgWidth / imgHeight;
         const newHeight = pdfWidth / ratio;
         pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, newHeight);
-        pdf.save('overtime_records.pdf');
+
+        const pdfBlob = pdf.output('blob');
+
+        // Periksa apakah browser mendukung API File System Access
+        if (window.showSaveFilePicker) {
+            try {
+                const fileHandle = await window.showSaveFilePicker({
+                    suggestedName: 'overtime_records.pdf',
+                    types: [{
+                        description: 'PDF file',
+                        accept: {'application/pdf': ['.pdf']}
+                    }]
+                });
+                const writableStream = await fileHandle.createWritable();
+                await writableStream.write(pdfBlob);
+                await writableStream.close();
+                alert('File berhasil disimpan.');
+            } catch (err) {
+                console.error('Gagal menyimpan file:', err);
+            }
+        } else {
+            // Fallback untuk browser yang tidak mendukung API File System Access
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(pdfBlob);
+            link.download = 'overtime_records.pdf';
+            link.click();
+            alert('File disimpan menggunakan metode fallback.');
+        }
     });
 }
+
 
 function sendToWhatsApp() {
     const element = document.getElementById("overtimeTable");
