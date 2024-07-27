@@ -202,9 +202,6 @@ function toggleLanguage(lang) {
             case 'en':
                 element.textContent = translateToEnglish(text);
                 break;
-            case 'jp':
-                element.textContent = translateToJapanese(text);
-                break;
             default:
                 // Handle other elements or leave as is
                 break;
@@ -252,8 +249,7 @@ function translateToIndonesian(text) {
         default:
             return text;
     }
-}
-// Fungsi untuk menerjemahkan ke bahasa Inggris
+}// Fungsi untuk menerjemahkan ke bahasa Inggris
 function translateToEnglish(text) {
     switch (text) {
         case 'Catatan Lembur':
@@ -293,8 +289,7 @@ function translateToEnglish(text) {
         default:
             return text;
     }
-}
-// Fungsi untuk menghapus baris dari tabel
+}// Fungsi untuk menghapus baris dari tabel
 function deleteRow(button) {
     const row = button.parentNode.parentNode;
     row.parentNode.removeChild(row);
