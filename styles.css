@@ -1,16 +1,38 @@
 /* Global Styles */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f0f4f8;
     color: #333;
     margin: 0;
     padding: 0;
+    background: linear-gradient(135deg, 
+        #FFDDC1, /* Warna pastel peach */
+        #FFABAB, /* Warna pastel pink */
+        #FFC3A0, /* Warna pastel orange */
+        #D5AAFF, /* Warna pastel lavender */
+        #A2C2E2  /* Warna pastel blue */
+    );
+    background-size: 400% 400%; /* Ukuran gradasi */
+    animation: gradientAnimation 30s ease
+      infinite; /* Animasi gradasi */
 }
+
+/* Animasi gradasi */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+}
+
 
 h1 {
     text-align: center;
     margin-top: 20px;
-    color: #4A90E2; /* Warna biru khas */
+    color: #ffffff; /* Warna teks putih */
+    text-transform: uppercase; /* Mengubah teks menjadi huruf besar semua */
+    background-color: #4A90E2; /* Warna latar belakang kotak */
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Bayangan lembut */
 }
 
 table {
@@ -112,11 +134,19 @@ button:active {
     color: #4A90E2; /* Warna teks kalender dan jam */
 }
 
-#buttonContainer {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 10px;
+#userProfileContainer {
+    text-align: center;
+    margin: 20px auto;
+}
+
+#userProfileContainer label, #userProfileContainer select, #userProfileContainer button {
+    display: block;
+    margin: 10px auto;
+}
+
+#userProfileContainer select {
+    padding: 10px;
+    font-size: 16px;
 }
 
 .button-row {
@@ -173,6 +203,7 @@ button:active {
 #overtimeTable td {
     padding: 10px; /* Tambahkan padding untuk td */
 }
+
 /* Media Query for Landscape Orientation */
 @media screen and (orientation: landscape) {
     /* Adjust header and main content */
@@ -187,110 +218,73 @@ button:active {
     form input[type="number"],
     form textarea,
     form button {
-        width: 100%;
-        display: block;
+                width: 100%;
+        box-sizing: border-box;
+    }
+
+    .form-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .form-row label {
+        margin-bottom: 5px;
+    }
+
+    .form-row input,
+    .form-row button {
         margin-bottom: 10px;
     }
 
-    /* Adjust button group */
-    .button-group {
+    #overtimeTable {
+        font-size: 14px;
+    }
+}
+
+/* Media Query for Small Screens */
+@media screen and (max-width: 600px) {
+    table {
+        font-size: 14px;
+    }
+
+    .form-row {
         flex-direction: column;
     }
 
-    .button-group button {
+    .form-row label,
+    .form-row input,
+    .form-row button {
         width: 100%;
-        margin: 0;
-    }
-}
-/* Media Query for Portrait Orientation */
-@media screen and (orientation: portrait) {
-    /* Adjust header and main content */
-    header,
-    main {
-        text-align: center;
-    }
-
-    /* Adjust form layout */
-    form label,
-    form input[type="text"],
-    form input[type="number"],
-    form textarea,
-    form button {
-        width: 100%;
-        display: block;
         margin-bottom: 10px;
     }
-
-    /* Adjust button group */
-    .button-group {
-        flex-direction: column;
-    }
-
-    .button-group button {
-        width: 100%;
-        margin: 0;
-    }
 }
-/* Additional Styles for Mobile Devices */
-@media (max-width: 768px) {
-    /* Adjust header and main content */
-    header,
-    main {
-        text-align: center;
-    }
-
-    /* Adjust form layout */
-    form label,
-    form input[type="text"],
-    form input[type="number"],
-    form textarea,
-    form button {
-        width: 100%;
-        display: block;
-        margin-bottom: 10px;
-    }
-
-    /* Adjust button group */
-    .button-group {
-        flex-direction: column;
-    }
-
-    .button-group button {
-        width: 100%;
-        margin: 0;
-    }
+#datetimeContainer {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: #f9f9f9; /* Warna pastel lembut */
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    display: flex; /* Mengatur elemen secara horizontal */
+    align-items: center;
+    gap: 10px; /* Jarak antara kalender dan jam */
+    width: auto; /* Lebar otomatis untuk konten */
 }
 
-/* Additional Styles for Button Spacing */
-.button-group button {
-    margin-bottom: 10px; /* Tambahkan jarak di bawah tombol */
+#calendarView, #clock {
+    background-color: #ffffff; /* Warna latar belakang putih */
+    border: 1px solid #ddd; /* Garis abu-abu muda */
+    border-radius: 6px;
+    padding: 5px;
+    text-align: center;
 }
 
-.button-group button:last-child {
-    margin-bottom: 0; /* Hapus jarak di bawah tombol terakhir */
+#clock {
+    font-size: 16px; /* Ukuran font jam lebih besar */
 }
 
-/* Additional Styles for Button Colors */
-.button-row #addOvertimeButton {
-    background-color: #F79F1F; /* Warna orange pastel */
-}
-
-.button-row #addOvertimeButton:hover {
-    background-color: #D68910; /* Warna tombol saat hover */
-}
-
-.button-row #saveButton {
-    background-color: #4A90E2; /* Warna biru khas */
-}
-
-.button-row #saveButton:hover {
-    background-color: #003D72; /* Warna tombol saat hover */
-}
-
-.button-row #whatsappButton {
-    background-color: #25D366; /* Warna hijau WhatsApp */
-}
-
-.button-row #whatsappButton:hover {
-    background-color: #1EBE34; /* Warna tombol saat hover */
+#calendarView {
+    font-size: 14px; /* Ukuran font kalender */
+    font-weight: bold; /* Agar teks kalender lebih menonjol */
 }
