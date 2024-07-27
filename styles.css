@@ -12,16 +12,9 @@ body {
         #A2C2E2  /* Warna pastel blue */
     );
     background-size: 400% 400%; /* Ukuran gradasi */
-    animation: gradientAnimation 30s ease
-      infinite; /* Animasi gradasi */
+    
 }
 
-/* Animasi gradasi */
-@keyframes gradientAnimation {
-    0% { background-position: 0% 0%; }
-    50% { background-position: 100% 100%; }
-    100% { background-position: 0% 0%; }
-}
 
 
 h1 {
