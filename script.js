@@ -141,9 +141,9 @@ function updateTotalSalary() {
     const totalSalary = overtimeData.reduce((acc, curr) => acc + parseFloat(curr.totalSalary), 0);
     document.getElementById("totalSalary").textContent = totalSalary.toFixed(2);
 }
-async function saveAsPDF() {
+function saveAsPDF() {
     const element = document.getElementById("overtimeTable");
-    html2canvas(element).then(async canvas => {
+    html2canvas(element).then(canvas => {
         const imgData = canvas.toDataURL('image/png');
         const pdf = new jsPDF({
             orientation: 'landscape'
@@ -157,33 +157,17 @@ async function saveAsPDF() {
         const newHeight = pdfWidth / ratio;
         pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, newHeight);
 
+        // Membuat Blob dari PDF
         const pdfBlob = pdf.output('blob');
 
-        // Periksa apakah browser mendukung API File System Access
-        if (window.showSaveFilePicker) {
-            try {
-                const fileHandle = await window.showSaveFilePicker({
-                    suggestedName: 'overtime_records.pdf',
-                    types: [{
-                        description: 'PDF file',
-                        accept: {'application/pdf': ['.pdf']}
-                    }]
-                });
-                const writableStream = await fileHandle.createWritable();
-                await writableStream.write(pdfBlob);
-                await writableStream.close();
-                alert('File berhasil disimpan.');
-            } catch (err) {
-                console.error('Gagal menyimpan file:', err);
-            }
-        } else {
-            // Fallback untuk browser yang tidak mendukung API File System Access
-            const link = document.createElement('a');
-            link.href = URL.createObjectURL(pdfBlob);
-            link.download = 'overtime_records.pdf';
-            link.click();
-            alert('File disimpan menggunakan metode fallback.');
-        }
+        // Menggunakan metode dasar untuk mengunduh file
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(pdfBlob);
+        link.download = 'overtime_records.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(link.href);
     });
 }
 
