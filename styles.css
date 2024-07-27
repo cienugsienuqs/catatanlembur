@@ -1,0 +1,152 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f8;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: #4A90E2; /* Warna biru khas */
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: center;
+}
+
+th {
+    background: linear-gradient(135deg, #4A90E2, #003D72);
+    color: white;
+    font-weight: bold;
+}
+
+td {
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:nth-child(odd) td {
+    background-color: #f9f9f9; /* Warna pastel berbeda untuk baris ganjil */
+}
+
+tr:nth-child(even) td {
+    background-color: #e8f4f8; /* Warna pastel berbeda untuk baris genap */
+}
+
+tr:hover {
+    background-color: #e1f5fe; /* Warna latar belakang saat hover */
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+label {
+    flex: 1 1 auto;
+}
+
+input, button {
+    flex: 2 1 auto;
+}
+
+button {
+    padding: 10px 20px;
+    background: #8E3A3A; /* Warna merah maroon pastel */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #6D2E2E; /* Warna tombol saat hover */
+    transform: scale(1.05);
+}
+
+button:active {
+    background-color: #4A1A1A; /* Warna tombol saat ditekan */
+    transform: scale(1.02);
+}
+
+#whatsappButton {
+    background-color: #25D366; /* Warna hijau WhatsApp */
+}
+
+#whatsappButton:hover {
+    background-color: #1EBE34; /* Warna tombol saat hover */
+}
+
+#datetimeContainer {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#calendar, #clock {
+    font-size: 18px;
+    color: #4A90E2; /* Warna teks kalender dan jam */
+}
+
+#buttonContainer {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.button-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.button-row button {
+    flex: 1 1 auto;
+}
+
+.button-row #whatsappButton {
+    background-color: #25D366; /* Warna hijau WhatsApp */
+}
+
+.button-row #whatsappButton:hover {
+    background-color: #1EBE34; /* Warna tombol saat hover */
+}
+
+.button-row #saveButton {
+    background-color: #4A90E2; /* Warna biru khas */
+}
+
+.button-row #saveButton:hover {
+    background-color: #003D72; /* Warna tombol saat hover */
+}
+
+#overtimeTable {
+    width: 100%;
+}
+
+#overtimeTable td {
+    padding: 1
