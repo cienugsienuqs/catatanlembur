@@ -1,3 +1,4 @@
+/* Global Styles */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f0f4f8;
@@ -126,14 +127,27 @@ button:active {
 
 .button-row button {
     flex: 1 1 auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
-.button-row #whatsappButton {
-    background-color: #25D366; /* Warna hijau WhatsApp */
+.button-row button:hover {
+    transform: scale(1.05);
 }
 
-.button-row #whatsappButton:hover {
-    background-color: #1EBE34; /* Warna tombol saat hover */
+.button-row button:active {
+    transform: scale(1.02);
+}
+
+.button-row #addOvertimeButton {
+    background-color: #F79F1F; /* Warna orange pastel */
+}
+
+.button-row #addOvertimeButton:hover {
+    background-color: #D68910; /* Warna tombol saat hover */
 }
 
 .button-row #saveButton {
@@ -144,9 +158,139 @@ button:active {
     background-color: #003D72; /* Warna tombol saat hover */
 }
 
+.button-row #whatsappButton {
+    background-color: #25D366; /* Warna hijau WhatsApp */
+}
+
+.button-row #whatsappButton:hover {
+    background-color: #1EBE34; /* Warna tombol saat hover */
+}
+
 #overtimeTable {
     width: 100%;
 }
 
 #overtimeTable td {
-    padding: 1
+    padding: 10px; /* Tambahkan padding untuk td */
+}
+/* Media Query for Landscape Orientation */
+@media screen and (orientation: landscape) {
+    /* Adjust header and main content */
+    header,
+    main {
+        text-align: center;
+    }
+
+    /* Adjust form layout */
+    form label,
+    form input[type="text"],
+    form input[type="number"],
+    form textarea,
+    form button {
+        width: 100%;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    /* Adjust button group */
+    .button-group {
+        flex-direction: column;
+    }
+
+    .button-group button {
+        width: 100%;
+        margin: 0;
+    }
+}
+/* Media Query for Portrait Orientation */
+@media screen and (orientation: portrait) {
+    /* Adjust header and main content */
+    header,
+    main {
+        text-align: center;
+    }
+
+    /* Adjust form layout */
+    form label,
+    form input[type="text"],
+    form input[type="number"],
+    form textarea,
+    form button {
+        width: 100%;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    /* Adjust button group */
+    .button-group {
+        flex-direction: column;
+    }
+
+    .button-group button {
+        width: 100%;
+        margin: 0;
+    }
+}
+/* Additional Styles for Mobile Devices */
+@media (max-width: 768px) {
+    /* Adjust header and main content */
+    header,
+    main {
+        text-align: center;
+    }
+
+    /* Adjust form layout */
+    form label,
+    form input[type="text"],
+    form input[type="number"],
+    form textarea,
+    form button {
+        width: 100%;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    /* Adjust button group */
+    .button-group {
+        flex-direction: column;
+    }
+
+    .button-group button {
+        width: 100%;
+        margin: 0;
+    }
+}
+
+/* Additional Styles for Button Spacing */
+.button-group button {
+    margin-bottom: 10px; /* Tambahkan jarak di bawah tombol */
+}
+
+.button-group button:last-child {
+    margin-bottom: 0; /* Hapus jarak di bawah tombol terakhir */
+}
+
+/* Additional Styles for Button Colors */
+.button-row #addOvertimeButton {
+    background-color: #F79F1F; /* Warna orange pastel */
+}
+
+.button-row #addOvertimeButton:hover {
+    background-color: #D68910; /* Warna tombol saat hover */
+}
+
+.button-row #saveButton {
+    background-color: #4A90E2; /* Warna biru khas */
+}
+
+.button-row #saveButton:hover {
+    background-color: #003D72; /* Warna tombol saat hover */
+}
+
+.button-row #whatsappButton {
+    background-color: #25D366; /* Warna hijau WhatsApp */
+}
+
+.button-row #whatsappButton:hover {
+    background-color: #1EBE34; /* Warna tombol saat hover */
+}
