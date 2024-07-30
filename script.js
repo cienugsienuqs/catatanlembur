@@ -199,3 +199,31 @@ function updateDateTime() {
     document.getElementById("calendarView").textContent = dateString;
     document.getElementById("clock").textContent = timeString;
 }
+(function() {
+    // Daftar pola kelas dan ID umum untuk iklan
+    const adPatterns = [
+        /ad|advertisement|banner|sponsor|promo/i,  // Pola regex untuk mendeteksi iklan
+        /google_ad|ads|adcontainer|ad-banner/i
+    ];
+
+    // Fungsi untuk menyembunyikan elemen berdasarkan pola
+    function hideAds() {
+        const allElements = document.querySelectorAll('*');
+        allElements.forEach(element => {
+            adPatterns.forEach(pattern => {
+                if (pattern.test(element.className) || pattern.test(element.id)) {
+                    element.style.display = 'none';
+                }
+            });
+        });
+    }
+
+    // Inisialisasi MutationObserver untuk memantau perubahan pada DOM
+    const observer = new MutationObserver(hideAds);
+    
+    // Mulai mengamati perubahan pada body
+    observer.observe(document.body, { childList: true, subtree: true });
+    
+    // Jalankan hideAds saat halaman dimuat
+    window.addEventListener('load', hideAds);
+})();
